@@ -1,8 +1,8 @@
-#include<stdio.h>
+#include <stdio.h>
 /**
-* main - Entry point (program that prints the size of various types of the computer types)
+* main - Entry point
 *
-* Return: Always 0 (Correct)
+* Return: Always 0 (Success)
 */
 int main(void)
 {
@@ -13,3 +13,4 @@ int main(void)
 	printf("Size of a float: %d byte(s)\n", sizeof(float));
 	return (0);
 }
+

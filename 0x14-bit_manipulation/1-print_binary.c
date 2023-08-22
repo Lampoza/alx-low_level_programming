@@ -2,29 +2,28 @@
 #include <stdio.h>
 
 /**
- * The binary_to_uint -a convert a binary number to an unsigned int
- * @b:is a  char string
- * Return: a converted decimal number or 0 if there is an unconvertable char
+ * print_binary - it print binary representation of a number
+ * @n: is a decimal number to print as binary
  */
-unsigned int binary_to_uint(const char *b)
+void print_binary(unsigned long int n)
 {
-	unsigned int total, power;
-	int len;
+	unsigned long int temp;
+	int shifts;
 
-	if (b == NULL)
-		return (0);
-
-	for (len = 0; b[len]; len++)
+	if (n == 0)
 	{
-		if (b[len] != '0' && b[len] != '1')
-			return (0);
+		printf("0");
+		return;
 	}
 
-	for (power = 1, total = 0, len--; len >= 0; len--, power *= 2)
-	{
-		if (b[len] == '1')
-			total += power;
-	}
+	for (temp = n, shifts = 0; (temp >>= 1) > 0; shifts++)
+		;
 
-	return (total);
+	for (; shifts >= 0; shifts--)
+	{
+		if ((n >> shifts) & 1)
+			printf("1");
+		else
+			printf("0");
+	}
 }
